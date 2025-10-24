@@ -1,0 +1,234 @@
+/* Recent Activity Styles */
+.activity-card {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.activity-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.view-all-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--border-radius);
+  transition: var(--transition-fast);
+}
+
+.view-all-btn:hover {
+  background-color: #eff6ff;
+  transform: translateY(-1px);
+}
+
+.view-all-btn:active {
+  transform: translateY(0);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  transition: var(--transition-fast);
+  animation: slideInLeft 0.5s ease-out both;
+  position: relative;
+}
+
+.activity-item:hover {
+  background-color: #f9fafb;
+  transform: translateX(4px);
+}
+
+.activity-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary-color), #60a5fa);
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.activity-item:hover::before {
+  opacity: 1;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-item:hover .activity-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-md);
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 4px;
+  transition: var(--transition-fast);
+}
+
+.activity-item:hover .activity-title {
+  color: var(--primary-color);
+}
+
+.activity-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.activity-user {
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.activity-item:hover .activity-user {
+  color: var(--text-secondary);
+}
+
+.activity-time {
+  position: relative;
+  padding-left: 8px;
+}
+
+.activity-time::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+.activity-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+.activity-item:hover .indicator-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .activity-card {
+    padding: 20px;
+  }
+  
+  .activity-item {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .activity-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-card {
+    padding: 16px;
+  }
+  
+  .activity-header h3 {
+    font-size: 16px;
+  }
+  
+  .activity-item {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .activity-title {
+    font-size: 13px;
+  }
+  
+  .activity-meta {
+    font-size: 11px;
+  }
+}

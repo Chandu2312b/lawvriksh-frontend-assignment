@@ -1,0 +1,81 @@
+/* App Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-body {
+    flex-direction: column;
+  }
+}
+
+/* Animation for sidebar overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  transition: var(--transition);
+  background-color: var(--background-color);
+  min-height: calc(100vh - 60px);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+    min-height: calc(100vh - 50px);
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Error states */
+.error {
+  color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin: 16px 0;
+}
+
+/* Success states */
+.success {
+  color: #059669;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin: 16px 0;
+}
